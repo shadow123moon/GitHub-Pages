@@ -11,6 +11,12 @@
             padding: 0;
             height: 100%;
             font-family: Arial, sans-serif;
+            transition: background-color 1s; /* 动态背景颜色渐变效果 */
+        }
+
+        /* 动态背景颜色 */
+        body {
+            background-color: #ff7e5f;
         }
 
         /* 设置背景图片及居中文本 */
@@ -20,17 +26,49 @@
             background-position: center;
             height: 100%;
             display: flex;
+            flex-direction: column; /* 将文本与按钮纵向排列 */
             justify-content: center;
             align-items: center;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             font-size: 2.5em;
+            text-align: center; /* 居中文本 */
+        }
+
+        /* 按钮样式 */
+        .btn {
+            display: inline-block;
+            margin-top: 20px; /* 按钮距离文字有点间距 */
+            padding: 10px 20px;
+            background-color: #4CAF50; /* 按钮背景颜色 */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049; /* 悬停时的背景颜色 */
+            box-shadow: 0 0 15px #45a049; /* 按钮悬停时发光效果 */
         }
     </style>
 </head>
 <body>
     <div class="background">
         <p>这是 Shadowmoon 的博客</p>
+        <a href="https://shadow123moon.github.io/GitHub-Pages/" class="btn">进入博客</a> <!-- 按钮放在HTML中 -->
     </div>
+
+    <script>
+        // 动态背景颜色变化
+        let colors = ["#ff7e5f", "#feb47b", "#6a11cb", "#2575fc"]; // 定义背景颜色数组
+        let i = 0;
+        setInterval(function() {
+            document.body.style.backgroundColor = colors[i]; // 依次切换背景颜色
+            i = (i + 1) % colors.length; // 循环使用数组中的颜色
+        }, 5000); // 每5秒切换一次颜色
+    </script>
 </body>
 </html>
