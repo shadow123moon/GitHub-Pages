@@ -5,20 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shadowmoon 的博客</title>
     <style>
-        /* 全局样式 */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            transition: background-color 1s; /* 动态背景颜色渐变效果 */
-        }
+        
+       
 
-        /* 动态背景颜色 */
-        body {
-            background-color: #ff7e5f;
-        }
-
+     
         /* 设置背景图片及居中文本 */
         .background {
             background-image: url('assets/images/backgrounds/img-1.jpg'); /* 替换为你自己的背景图片路径 */
@@ -57,7 +47,16 @@
         <p>这是 Shadowmoon 的博客</p>
         <a href="https://shadow123moon.github.io/GitHub-Pages/" class="btn">进入博客</a> <!-- 按钮放在HTML中 -->
     </div>
+ <script>
+        
 
+        // 监听按钮点击事件，点击后更换背景图片
+        document.getElementById("blogButton").addEventListener("click", function(event) {
+            event.preventDefault(); // 阻止默认链接跳转，方便预览效果
+            document.querySelector(".background").style.backgroundImage = "url('assets/images/backgrounds/img-2.jpg')"; // 点击后更换为新的背景图片
+            document.body.style.backgroundColor = '#000'; // 点击后背景颜色也可以更换
+        });
+    </script>
    
 </body>
 </html>
