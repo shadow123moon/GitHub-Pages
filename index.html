@@ -5,33 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shadowmoon 的博客</title>
     <style>
-        
-       
+        /* 全局样式 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            transition: background-color 1s, background-image 1s; /* 添加背景图片变化的过渡效果 */
+        }
 
-     
+        /* 初始背景颜色 */
+        body {
+            background-color: #ff7e5f;
+        }
+
         /* 设置背景图片及居中文本 */
         .background {
-            background-image: url('assets/images/backgrounds/img-1.jpg'); /* 替换为你自己的背景图片路径 */
-            background-size: cover; /* 让背景图片覆盖整个页面 */
+            background-image: url('assets/images/backgrounds/img-1.jpg'); /* 初始背景图片 */
+            background-size: cover;
             background-position: center;
             height: 100%;
             display: flex;
-            flex-direction: column; /* 将文本与按钮纵向排列 */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             font-size: 2.5em;
-            text-align: center; /* 居中文本 */
+            text-align: center;
         }
 
         /* 按钮样式 */
         .btn {
             display: inline-block;
-            margin-top: 20px; /* 按钮距离文字有点间距 */
+            margin-top: 20px;
             padding: 10px 20px;
-            background-color:transparent; /* 按钮背景颜色 */
+            background-color: transparent; /* 背景透明 */
             color: white;
+            border: 2px solid white; /* 白色边框 */
             text-align: center;
             text-decoration: none;
             border-radius: 5px;
@@ -39,24 +50,34 @@
             transition: background-color 0.3s, box-shadow 0.3s;
         }
 
-    
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* 悬停时按钮半透明 */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* 按钮悬停时发光效果 */
+        }
     </style>
 </head>
 <body>
     <div class="background">
         <p>这是 Shadowmoon 的博客</p>
-        <a href="https://shadow123moon.github.io/GitHub-Pages/" class="btn">进入博客</a> <!-- 按钮放在HTML中 -->
+        <a href="https://shadow123moon.github.io/GitHub-Pages/" class="btn" id="blogButton">进入博客</a> <!-- 按钮 -->
     </div>
- <script>
-        
 
-        // 监听按钮点击事件，点击后更换背景图片
+    <script>
+        // 动态背景颜色变化
+        let colors = ["#ff7e5f", "#feb47b", "#6a11cb", "#2575fc"];
+        let i = 0;
+        setInterval(function() {
+            document.body.style.backgroundColor = colors[i];
+            i = (i + 1) % colors.length;
+        }, 5000); // 每5秒切换一次颜色
+
+        // 监听按钮点击事件，点击后更换背景图片并隐藏按钮
         document.getElementById("blogButton").addEventListener("click", function(event) {
             event.preventDefault(); // 阻止默认链接跳转，方便预览效果
-            document.querySelector(".background").style.backgroundImage = "url('assets/images/Snipaste.png')"; // 点击后更换为新的背景图片
-            document.body.style.backgroundColor = '#000'; // 点击后背景颜色也可以更换
+            document.querySelector(".background").style.backgroundImage = "url('assets/images/backgrounds/Snipaste.png')"; // 点击后更换背景图片
+            document.body.style.backgroundColor = '#000'; // 点击后背景颜色更改
+            this.style.display = 'none'; // 点击后隐藏按钮
         });
     </script>
-   
 </body>
 </html>
